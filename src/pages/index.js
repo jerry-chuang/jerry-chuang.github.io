@@ -136,13 +136,14 @@ const RenderBody = ({ home, projects, meta }) => (
         <Hero>
             <>
                 {RichText.render(home.hero_title)}
+                {RichText.render(home.content)}
             </>
-            <a href={home.hero_button_link.url}
+            {/* <a href={home.hero_button_link.url}
                target="_blank" rel="noopener noreferrer">
                 <Button>
                     {RichText.render(home.hero_button_text)}
                 </Button>
-            </a>
+            </a> */}
         </Hero>
         <Section>
             {projects.map((project, i) => (
@@ -160,7 +161,9 @@ const RenderBody = ({ home, projects, meta }) => (
             </WorkAction>
         </Section>
         <Section>
+           
             {RichText.render(home.about_title)}
+            {RichText.render(home.content)}
             <About
                 bio={home.about_bio}
                 socialLinks={home.about_links}
