@@ -1,7 +1,7 @@
 {
   "name": "jerchuang-github-io",
   "private": true,
-  "description": "backup portfolio page",
+  "description": "Portfolio site",
   "version": "0.1.0",
   "author": "Jerry Chuang",
   "dependencies": {
