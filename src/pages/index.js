@@ -6,7 +6,7 @@ import { graphql, Link } from "gatsby"
 import styled from "@emotion/styled"
 import colors from "styles/colors"
 import dimensions from "styles/dimensions"
-import Button from "components/_ui/Button"
+// import Button from "components/_ui/Button"
 import About from "components/About"
 import Layout from "components/Layout"
 import ProjectCard from "components/ProjectCard"
@@ -181,7 +181,7 @@ const RenderBody = ({ home, projects, meta }) => (
         />
       ))}
       <WorkAction to={"/work"}>
-        See more work <span>&#8594;</span>
+        See all projects <span>&#8594;</span>
       </WorkAction>
     </Section>
     <Section>

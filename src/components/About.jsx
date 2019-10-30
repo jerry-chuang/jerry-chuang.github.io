@@ -1,5 +1,5 @@
 import React from "react"
-import Button from "components/_ui/Button"
+// import Button from "components/_ui/Button"
 import styled from "@emotion/styled"
 import dimensions from "styles/dimensions"
 import { RichText } from "prismic-reactjs"
@@ -93,15 +93,15 @@ const About = ({ bio, socialLinks }) => (
       ))}
     </AboutLinkContainer>
     <AboutBio>{RichText.render(bio)}</AboutBio>
-    <AboutActions>
+    {/* <AboutActions>
       <a
-        href="mailto:marguerite.roth@gmail.com"
+        href="mailto:"
         target="_blank"
         rel="noopener noreferrer"
       >
         <Button className="Button--secondary">Email me</Button>
       </a>
-    </AboutActions>
+    </AboutActions> */}
   </AboutContainer>
 )
 
