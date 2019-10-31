@@ -7,6 +7,7 @@ import { Link, graphql } from "gatsby"
 import { RichText } from "prismic-reactjs"
 import Button from "components/_ui/Button"
 import Layout from "components/Layout"
+import gitIcon from "../images/github.svg"
 
 const ProjectHeroContainer = styled("div")`
   background: ${colors.grey200};
@@ -16,7 +17,7 @@ const ProjectHeroContainer = styled("div")`
   overflow: hidden;
   position: relative;
   padding-top: 2.25em;
-  margin-bottom: 3.5em;
+  margin-bottom: 1em;
 
   img {
     max-width: 600px;
@@ -42,12 +43,27 @@ const ProjectBody = styled("div")`
     }
   }
 `
+const ProjectLinksContainer = styled("div")`
+  display: flex;
+`
+
+const ProjectLink = styled("a")`
+  text-decoration: none;
+`
+
+const GitIcon = styled("img")`
+  height: .8em;
+  width: .8em;
+  margin-right: .3em;
+`
 
 const WorkLink = styled(Link)`
   margin-top: 3em;
   display: block;
   text-align: center;
 `
+
+
 
 const Project = ({ project, meta }) => {
   return (
@@ -97,6 +113,26 @@ const Project = ({ project, meta }) => {
             <img src={project.project_hero_image.url} alt="bees" />
           </ProjectHeroContainer>
         )}
+        <ProjectLinksContainer>
+        {project.github_link && (
+          <ProjectLink
+            href={project.github_link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button className="Button--secondary"><GitIcon src={gitIcon} alt="GitHub" />Github</Button>
+          </ProjectLink>
+        )}
+        {project.demo_link && (
+          <ProjectLink
+            href={project.demo_link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button className="Button--secondary">Demo</Button>
+          </ProjectLink>
+        )}
+        </ProjectLinksContainer>
         <ProjectBody>
           {RichText.render(project.project_description)}
           <WorkLink to={"/work"}>
@@ -111,6 +147,7 @@ const Project = ({ project, meta }) => {
 export default ({ data }) => {
   const projectContent = data.prismic.allProjects.edges[0].node
   const meta = data.site.siteMetadata
+  console.log(projectContent)
   return <Project project={projectContent} meta={meta} />
 }
 
@@ -130,6 +167,19 @@ export const query = graphql`
             project_stacks {
               project_stack
             }
+            github_link {
+              ... on PRISMIC__ExternalLink {
+                _linkType
+                url
+              }
+            }
+            demo_link {
+              ... on PRISMIC__ExternalLink {
+                _linkType
+                url
+              }
+            }
+
             project_post_date
             project_hero_image
             project_description

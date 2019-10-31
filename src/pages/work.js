@@ -92,6 +92,18 @@ export const query = graphql`
             project_stacks {
               project_stack
             }
+            github_link {
+              ... on PRISMIC__ExternalLink {
+                _linkType
+                url
+              }
+            }
+            demo_link {
+              ... on PRISMIC__ExternalLink {
+                _linkType
+                url
+              }
+            }
             project_post_date
             _meta {
               uid
