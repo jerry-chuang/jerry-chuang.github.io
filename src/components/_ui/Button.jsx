@@ -14,6 +14,7 @@ const ButtonContainer = styled("button")`
   border-radius: 2px;
   position: relative;
   transition: background 100ms ease-in-out;
+  margin-right: 1em;
 
   @media (max-width: ${dimensions.maxwidthMobile}px) {
     padding: 0.8em 1.8em;
@@ -22,21 +23,6 @@ const ButtonContainer = styled("button")`
 
   p {
     margin: 0;
-  }
-
-  &:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      135deg,
-      ${colors.pink400} 0%,
-      ${colors.purple400} 100%
-    );
-    z-index: -1;
   }
 
   &:hover {
