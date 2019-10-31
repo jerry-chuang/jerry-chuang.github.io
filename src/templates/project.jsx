@@ -127,7 +127,9 @@ export const query = graphql`
             project_title
             project_preview_description
             project_preview_thumbnail
-            project_category
+            project_stacks {
+              project_stack
+            }
             project_post_date
             project_hero_image
             project_description
