@@ -66,16 +66,16 @@ const AboutBio = styled("div")`
   }
 `
 
-const AboutActions = styled("div")`
-  padding-top: 1em;
-  padding-bottom: 3em;
+// const AboutActions = styled("div")`
+//   padding-top: 1em;
+//   padding-bottom: 3em;
 
-  @media (max-width: ${dimensions.maxwidthMobile}px) {
-    padding: 0;
-    grid-column: 1 / -1;
-    grid-row: 1;
-  }
-`
+//   @media (max-width: ${dimensions.maxwidthMobile}px) {
+//     padding: 0;
+//     grid-column: 1 / -1;
+//     grid-row: 1;
+//   }
+// `
 
 const About = ({ bio, socialLinks }) => (
   <AboutContainer>
