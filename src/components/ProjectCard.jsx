@@ -81,14 +81,21 @@ const ProjectCardContent = styled("div")`
   }
 `
 
-const ProjectCardCategory = styled("h6")`
-  font-weight: 600;
-  color: ${colors.grey600};
-`
-
 const ProjectCardTitle = styled("h3")`
   margin-bottom: 0.5em;
   margin-top: 0.5em;
+`
+const ProjectCardStacks = styled("div")`
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+`
+const ProjectCardStack = styled("h6")`
+  margin-right: 1em;
+  font-weight: 600;
+  color: ${colors.grey600};
 `
 
 const ProjectCardBlurb = styled("div")`
@@ -157,11 +164,17 @@ const ProjectCardImageContainer = styled("div")`
   }
 `
 
-const ProjectCard = ({ category, title, description, thumbnail, uid }) => (
+const ProjectCard = ({ title, description, thumbnail, stacks, uid }) => (
   <ProjectCardContainer to={`/work/${uid}`}>
     <ProjectCardContent className="ProjectCardContent">
-      <ProjectCardCategory>{category[0].text}</ProjectCardCategory>
       <ProjectCardTitle>{title[0].text}</ProjectCardTitle>
+      <ProjectCardStacks>
+        {stacks.map((stack, i) => (
+          <ProjectCardStack key={i}>
+            {stack.project_stack[0].text}
+          </ProjectCardStack>
+        ))}
+      </ProjectCardStacks>
       <ProjectCardBlurb>{RichText.render(description)}</ProjectCardBlurb>
       <ProjectCardAction className="ProjectCardAction">
         Details <span>&#8594;</span>
@@ -176,8 +189,8 @@ const ProjectCard = ({ category, title, description, thumbnail, uid }) => (
 export default ProjectCard
 
 ProjectCard.propTypes = {
-  category: PropTypes.array.isRequired,
   thumbnail: PropTypes.object.isRequired,
+  stacks: PropTypes.array.isRequired,
   title: PropTypes.array.isRequired,
   description: PropTypes.array.isRequired,
   uid: PropTypes.string.isRequired,
