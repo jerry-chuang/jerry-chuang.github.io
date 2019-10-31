@@ -88,7 +88,7 @@ const About = ({ bio, socialLinks }) => (
           rel="noopener noreferrer"
         >
           {social.about_link[0].text}
-          <span>&#8594;</span>
+          <span>&#8592;</span>
         </AboutLink>
       ))}
     </AboutLinkContainer>
