@@ -293,3 +293,6 @@ In the right panel, select *JSON editor* and paste the following:
 }
 ```
 
+4. **Publish to github pages.**
+
+npm run deploy
